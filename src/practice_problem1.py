@@ -44,7 +44,7 @@ def main():
 #    run_test_double()
 #    run_test_shrink()
 #    run_test_double_then_shrink()
-#    run_test_reset()
+    run_test_reset()
 #    run_test_steal()
     run_test_get_history()
 #    run_test_combined_box()
@@ -109,6 +109,7 @@ class Box(object):
         self.originalcontents = contents
         self.originalvolume = volume
         self.history = []
+        self.count = 0
 
     def append_string(self, additional_contents):
         """
@@ -354,9 +355,10 @@ class Box(object):
         #    DIFFICULTY:      4
         #    TIME ESTIMATE:   5 minutes.
         # --------------------------------------------------------------
-        self.contents.join(self.history)
-        #self.history = self.history + str(self.contents)
+        history = self.history + [self.contents]
         self.__init__(self.originalcontents, self.originalvolume)
+        self.history = self.history + history
+
 
     def steal(self, other_box):
         """
@@ -451,7 +453,7 @@ class Box(object):
           :type other_box: Box
         """
         # --------------------------------------------------------------
-        # TODO: 10. Implement and test this function.
+        # DONE: 10. Implement and test this function.
         #     The testing code is already written for you (above).
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -459,7 +461,8 @@ class Box(object):
         #    DIFFICULTY:      4
         #    TIME ESTIMATE:   5 minutes.
         # --------------------------------------------------------------
-
+        newbox = Box(self.contents + other_box.contents, self.volume + other_box.volume)
+        return newbox
 
 ########################################################################
 # The TEST functions for the  Box  class begin here.

@@ -55,8 +55,37 @@ def run_test_practice_problem2a():
     print('--------------------------------------------------')
     print('Testing the   practice_problem2a   function:')
     print('--------------------------------------------------')
-    
+    #Test 1:
+    seq = [0, 1, 2, 3, 4, 5, 6]
+    expected = [6, 7, 8, 9, 10, 11, 12]
+    answer = practice_problem2a(seq, 6)
+    print('Test 1:')
+    print('Expected: ', expected)
+    print('Actual:', answer)
 
+    # Test 2:
+    seq = [2, 3, 4]
+    expected = [8, 9, 10]
+    answer = practice_problem2a(seq, 6)
+    print('Test 2:')
+    print('Expected: ', expected)
+    print('Actual:', answer)
+
+    # Test 3:
+    seq = [7, 10, 13]
+    expected = [10, 13, 16]
+    answer = practice_problem2a(seq, 3)
+    print('Test 1:')
+    print('Expected: ', expected)
+    print('Actual:', answer)
+
+    # Test 2:
+    seq = [3, 5]
+    expected = [5, 7]
+    answer = practice_problem2a(seq, 2)
+    print('Test 2:')
+    print('Expected: ', expected)
+    print('Actual:', answer)
 
 def practice_problem2a(sequence, delta):
     """
@@ -77,14 +106,16 @@ def practice_problem2a(sequence, delta):
       :type delta:    int
     """
     ####################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   5 minutes.
     ####################################################################
-
+    for k in range(len(sequence)):
+        sequence[k] = sequence[k] + delta
+    return sequence
 
 def run_test_practice_problem2b():
     """ Tests the   practice_problem2b  function. """
@@ -171,13 +202,21 @@ def practice_problem2b(sequence):
       :type sequence [str]
     """
     ####################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   10 minutes.
     ####################################################################
+    list = ''
+    for k in range(len(sequence)):
+        if sequence[k] == '':
+            list = list
+        else:
+            x = sequence[k]
+            list = list + x[0]
+    return list
 
 
 # ----------------------------------------------------------------------
